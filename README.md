@@ -2,6 +2,15 @@
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
 
+## Setup
+- Requires [https://github.com/colinfwren/face-recognition-api](https://github.com/colinfwren/face-recognition-api) to be running in background
+- Need to enable `findFace` route (under `face-recognition`) in Settings -> Users & Permissions -> Roles -> Public -> Permissions in `/admin`
+
+## Usage
+- When an image is added to media library it will be sent to the face-recognition API the media object will be updated with a CSV string or face IDs from that system
+- Sending an image to `/faces/searches` will send that image onto the face-recognition API which will return all related faces along with the Strapi media ID which it will then use to return the full media record
+
+
 ### `develop`
 
 Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
